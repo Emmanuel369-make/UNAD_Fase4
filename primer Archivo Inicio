@@ -1,0 +1,22 @@
+from abc import ABC, abstractmethod
+import datetime
+
+# ==============================
+# ARCHIVO LOG
+# ==============================
+def registrar_log(mensaje):
+    with open("log.txt", "a") as archivo:
+        archivo.write(f"{datetime.datetime.now()} - {mensaje}\n")
+
+
+# ==============================
+# EXCEPCIONES PERSONALIZADAS
+# ==============================
+class ErrorCliente(Exception):
+    pass
+
+class ErrorServicio(Exception):
+    pass
+
+class ErrorReserva(Exception):
+    pass
