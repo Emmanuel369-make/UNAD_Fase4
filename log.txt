@@ -1,6 +1,4 @@
-2026-05-04 13:47:13.886899 - Error en cliente: Nombre vacío
-2026-05-04 13:47:15.184746 - Error al calcular costo: 'NoneType' object has no attribute 'calcular_costo'
-2026-05-04 13:47:15.280571 - Reserva inválida: No se pudo procesar la reserva
-2026-05-04 14:16:14.797461 - Error en cliente: Nombre vacío
-2026-05-04 14:16:16.105737 - Error al calcular costo: Servicio no disponible
-2026-05-04 14:16:16.134591 - Reserva inválida: No se pudo procesar la reserva
+
+2026-05-07 13:28:24.540294 - Tipo de servicio inválido
+2026-05-07 13:29:32.621038 - invalid literal for int() with base 10: '0.33'
+2026-05-07 13:30:06.411063 - invalid literal for int() with base 10: 'alverto'

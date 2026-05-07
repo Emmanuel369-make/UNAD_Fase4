@@ -197,4 +197,137 @@ def simulacion():
         registrar_log(f"Error general: {e}")
 
 
-simulacion()
+# ==============================
+# MENÚ INTERACTIVO
+# ==============================
+
+def menu():
+
+    while True:
+
+        print("\n===== SOFTWARE FJ =====")
+        print("1. Registrar cliente")
+        print("2. Crear servicio")
+        print("3. Hacer reserva")
+        print("4. Ver clientes")
+        print("5. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        try:
+
+            # REGISTRAR CLIENTE
+            if opcion == "1":
+
+                nombre = input("Ingrese nombre: ")
+                edad = int(input("Ingrese edad: "))
+
+                cliente = Cliente(nombre, edad)
+
+                clientes.append(cliente)
+
+                print("Cliente registrado correctamente")
+
+            # CREAR SERVICIO
+            elif opcion == "2":
+
+                print("\nTipos de servicio:")
+                print("1. Reserva de sala")
+                print("2. Alquiler de equipo")
+                print("3. Asesoría")
+
+                tipo = input("Seleccione el tipo: ")
+
+                nombre = input("Nombre del servicio: ")
+                precio = float(input("Precio base: "))
+
+                if precio <= 0:
+                    raise ErrorServicio("El precio debe ser mayor que cero")
+
+                if tipo == "1":
+
+                    servicio = ReservaSala(nombre, precio)
+
+                elif tipo == "2":
+
+                    servicio = AlquilerEquipo(nombre, precio)
+
+                elif tipo == "3":
+
+                    servicio = Asesoria(nombre, precio)
+
+                else:
+                    raise ErrorServicio("Tipo de servicio inválido")
+
+                servicios.append(servicio)
+
+                print("Servicio creado correctamente")
+
+            # HACER RESERVA
+            elif opcion == "3":
+
+                if not clientes:
+                    raise ErrorReserva("No hay clientes registrados")
+
+                if not servicios:
+                    raise ErrorReserva("No hay servicios registrados")
+
+                print("\nCLIENTES DISPONIBLES")
+
+                for i, cliente in enumerate(clientes):
+
+                    print(f"{i + 1}. {cliente.nombre}")
+
+                cliente_index = int(input("Seleccione cliente: ")) - 1
+
+                cliente = clientes[cliente_index]
+
+                print("\nSERVICIOS DISPONIBLES")
+
+                for i, servicio in enumerate(servicios):
+
+                    print(f"{i + 1}. {servicio.nombre}")
+
+                servicio_index = int(input("Seleccione servicio: ")) - 1
+
+                servicio = servicios[servicio_index]
+
+                reserva = Reserva(cliente, servicio)
+
+                reserva.procesar()
+
+                reservas.append(reserva)
+
+            # VER CLIENTES
+            elif opcion == "4":
+
+                if not clientes:
+
+                    print("No hay clientes registrados")
+
+                else:
+
+                    for cliente in clientes:
+
+                        print(cliente.mostrar_info())
+
+            # SALIR
+            elif opcion == "5":
+
+                print("Saliendo del sistema...")
+
+                break
+
+            else:
+
+                print("Opción inválida")
+
+        except Exception as e:
+
+            registrar_log(str(e))
+
+            print(f"Error: {e}")
+
+
+# EJECUTAR SISTEMA
+menu()
