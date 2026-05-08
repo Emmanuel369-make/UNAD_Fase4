@@ -38,9 +38,13 @@ class Cliente(Entidad):
     def __init__(self, nombre, edad):
         try:
             if not nombre:
-                raise ErrorCliente("Nombre vacío")
-            if edad <= 0:
-                raise ErrorCliente("Edad inválida")
+                raise ErrorCliente("El nombre no puede estar vacío")
+
+            if not nombre.replace(" ", "").isalpha():
+                raise ErrorCliente("El nombre solo debe contener letras")
+
+            if edad <= 0 or edad > 120:
+                raise ErrorCliente("Edad fuera de rango válido")
 
             self.nombre = nombre
             self.edad = edad
@@ -220,7 +224,15 @@ def menu():
             if opcion == "1":
 
                 nombre = input("Ingrese nombre: ")
-                edad = int(input("Ingrese edad: "))
+
+                if not nombre:
+                   raise ErrorCliente("El nombre no puede estar vacío") 
+
+                try:
+                    edad = int(input("Ingrese edad: "))
+
+                except ValueError:
+                    raise ErrorCliente("La edad debe ser un número entero")
 
                 cliente = Cliente(nombre, edad)
 
@@ -239,7 +251,15 @@ def menu():
                 tipo = input("Seleccione el tipo: ")
 
                 nombre = input("Nombre del servicio: ")
-                precio = float(input("Precio base: "))
+
+                if not nombre:
+                    raise ErrorServicio("El nombre del servicio no puede estar vacío")
+
+                try:
+                    precio = float(input("Precio base: "))
+
+                except ValueError:
+                    raise ErrorServicio("El precio debe ser numérico")
 
                 if precio <= 0:
                     raise ErrorServicio("El precio debe ser mayor que cero")
@@ -274,11 +294,23 @@ def menu():
 
                 print("\nCLIENTES DISPONIBLES")
 
+                
                 for i, cliente in enumerate(clientes):
+                     print(f"{i + 1}. {cliente.nombre}")
 
-                    print(f"{i + 1}. {cliente.nombre}")
+                entrada_cliente = input("Seleccione cliente: ")
 
-                cliente_index = int(input("Seleccione cliente: ")) - 1
+                if not entrada_cliente:
+                     raise ErrorReserva("Debe seleccionar un cliente")
+
+                try:
+                    cliente_index = int(entrada_cliente) - 1
+
+                except ValueError:
+                    raise ErrorReserva("Debe ingresar un número válido")
+
+                if cliente_index < 0 or cliente_index >= len(clientes):
+                    raise ErrorReserva("Cliente fuera de rango")
 
                 cliente = clientes[cliente_index]
 
@@ -288,7 +320,19 @@ def menu():
 
                     print(f"{i + 1}. {servicio.nombre}")
 
-                servicio_index = int(input("Seleccione servicio: ")) - 1
+                entrada_servicio = input("Seleccione servicio: ")
+
+                if not entrada_servicio:
+                    raise ErrorReserva("Debe seleccionar un servicio")
+
+                try:
+                    servicio_index = int(entrada_servicio) - 1
+
+                except ValueError:
+                    raise ErrorReserva("Debe ingresar un número válido")
+
+                if servicio_index < 0 or servicio_index >= len(servicios):
+                    raise ErrorReserva("Servicio fuera de rango")
 
                 servicio = servicios[servicio_index]
 

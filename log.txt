@@ -1,4 +1,24 @@
-
-2026-05-07 13:28:24.540294 - Tipo de servicio inválido
-2026-05-07 13:29:32.621038 - invalid literal for int() with base 10: '0.33'
-2026-05-07 13:30:06.411063 - invalid literal for int() with base 10: 'alverto'
+2026-05-07 13:28:24.540294 - Tipo de servicio invï¿½lido
+2026-05-07 20:11:32.145118 - La edad debe ser un nï¿½mero entero
+2026-05-07 20:12:31.754893 - Error en cliente: Edad invï¿½lida
+2026-05-07 20:12:31.757475 - Edad invï¿½lida
+2026-05-07 20:14:20.343226 - El precio debe ser numï¿½rico
+2026-05-07 20:18:06.063521 - El precio debe ser numï¿½rico
+2026-05-07 20:22:36.424113 - El precio debe ser mayor que cero
+2026-05-07 20:22:56.576184 - No hay clientes registrados
+2026-05-07 20:44:20.398519 - No hay clientes registrados
+2026-05-07 20:45:01.112947 - No hay servicios registrados
+2026-05-07 20:45:33.400097 - Debe seleccionar un cliente
+2026-05-07 20:45:38.942374 - Debe seleccionar un servicio
+2026-05-07 20:46:03.185681 - El nombre del servicio no puede estar vacï¿½o
+2026-05-07 20:46:42.147204 - Tipo de servicio invï¿½lido2026-05-07 20:57:23.599090 - Error en cliente: El nombre solo debe contener letras
+2026-05-07 20:57:23.601651 - El nombre solo debe contener letras
+2026-05-07 20:57:38.559837 - Error en cliente: Edad fuera de rango válido
+2026-05-07 20:57:38.561239 - Edad fuera de rango válido
+2026-05-07 20:58:04.862885 - No hay servicios registrados
+2026-05-07 20:58:37.817869 - Debe seleccionar un cliente
+2026-05-07 20:58:53.847111 - Debe seleccionar un servicio
+2026-05-07 21:00:01.795920 - Error en cliente: El nombre solo debe contener letras
+2026-05-07 21:00:01.798072 - El nombre solo debe contener letras
+2026-05-07 21:04:13.810917 - Error en cliente: El nombre solo debe contener letras
+2026-05-07 21:04:13.812698 - El nombre solo debe contener letras
