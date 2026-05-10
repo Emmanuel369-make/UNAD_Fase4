@@ -255,6 +255,9 @@ def menu():
                 if not nombre:
                     raise ErrorServicio("El nombre del servicio no puede estar vacío")
 
+                if not nombre.replace(" ", "").isalpha():
+                    raise ErrorServicio("El nombre del servicio solo debe contener letras")
+
                 try:
                     precio = float(input("Precio base: "))
 

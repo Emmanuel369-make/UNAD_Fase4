@@ -22,3 +22,4 @@
 2026-05-07 21:00:01.798072 - El nombre solo debe contener letras
 2026-05-07 21:04:13.810917 - Error en cliente: El nombre solo debe contener letras
 2026-05-07 21:04:13.812698 - El nombre solo debe contener letras
+2026-05-09 21:10:49.864320 - El nombre del servicio solo debe contener letras
